@@ -13,7 +13,10 @@ cd sentinel/
 docker build -t redis-sentinel:3.2.6-alpine .
 ```
 
-or 
+but I saved this on sys4u docker hub. 
+so you can omit this command. 
+or if you want pull image, input next command. 
+
 ```
 docker image pull sys4u/redis-sentinel:3.2.6-alpine
 ```
