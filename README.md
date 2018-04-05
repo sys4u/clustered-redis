@@ -137,5 +137,5 @@ docker service create \
   -e REDIS_MASTER_PORT=6379 \
   -e SENTINEL_DOWN_AFTER=5000 \
   -e SENTINEL_FAILOVER_TIMEOUT=15000 \
-  redis-sentinel:3.2.6-alpine
+  sys4u/redis-sentinel:3.2.6-alpine
 ```
