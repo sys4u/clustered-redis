@@ -13,6 +13,11 @@ cd sentinel/
 docker build -t redis-sentinel:3.2.6-alpine .
 ```
 
+or 
+```
+docker image pull sys4u/redis-sentinel:3.2.6-alpine
+```
+
 ## Setting up Redis cluster in Docker Swarm (Mode)
 
 Main sources of information when setting up Redis cluster:
@@ -109,6 +114,7 @@ single master node:
 docker service create \
   --name redis \
   --network fx \
+  --with-registry-auth \
   -p 6379:6379 \
   redis:3.2.6-alpine
 
@@ -116,6 +122,7 @@ docker service create \
 docker service create \
   --name redis-slave \
   --network fx \
+  --with-registry-auth \
   --replicas 3 \
   redis:3.2.6-alpine \
   redis-server --slaveof redis 6379
@@ -124,6 +131,7 @@ docker service create \
 docker service create \
   --name redis-sentinel \
   --network fx \
+  --with-registry-auth \
   --replicas 3 \
   -e REDIS_MASTER_HOST=redis \
   -e REDIS_MASTER_PORT=6379 \
