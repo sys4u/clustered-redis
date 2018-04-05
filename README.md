@@ -109,7 +109,7 @@ single master node:
 docker service create \
   --name redis \
   --network fx \
-  --port 6379:6379 \
+  -p 6379:6379 \
   redis:3.2.6-alpine
 
 # a few slave nodes pointing to our master node
@@ -117,7 +117,6 @@ docker service create \
   --name redis-slave \
   --network fx \
   --replicas 3 \
-  --port 6379:6379 \
   redis:3.2.6-alpine \
   redis-server --slaveof redis 6379
 
